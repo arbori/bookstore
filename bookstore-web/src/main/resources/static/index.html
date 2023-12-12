@@ -13,7 +13,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
-    <body>
+    <body onload="config_page()">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -61,8 +61,10 @@
                       <div class="col-md-8">
                         <div class="search">
                           <i class="fa fa-search"></i>
-                          <input id="gbooks-query-field" type="text" class="form-control" placeholder="What book do you want?">
-                          <button class="btn btn-primary" onclick="gbooks_query()">Search</button>
+                          <input id="gbooks-query-field" type="text" class="form-control" placeholder="What book do you want?" />
+                          <input id="gbooks-startIndex-field" type="hidden" />
+                          <input id="gbooks-maxResults-field" type="hidden" />
+                          <button class="btn btn-primary" onclick="gbooks_search()">Search</button>
                         </div>
                       </div>
                     </div>
@@ -71,6 +73,12 @@
                 <!-- Space of list books -->
                 <div id="gbooks-list" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                     
+                </div>
+
+                <!-- Arrow list books -->
+                <div id="gbooks-arrow" class="center">
+                    <input type="image" src="img/arrow-left.jpeg" alt="<" width="30" height="30" onclick="gbooks_page_back()"/>
+                    <input type="image" src="img/arrow-right.jpeg" alt=">" width="30" height="30" onclick="gbooks_page_forward()"/>
                 </div>
             </div>
         </section>

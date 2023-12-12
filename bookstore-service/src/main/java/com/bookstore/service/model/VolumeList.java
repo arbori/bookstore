@@ -12,6 +12,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VolumeList {
+    public VolumeList(QueryInfo queryInfo) {
+        this.queryInfo = queryInfo;
+    }
+    
     @JsonbProperty("queryInfo")
     private QueryInfo queryInfo;
     

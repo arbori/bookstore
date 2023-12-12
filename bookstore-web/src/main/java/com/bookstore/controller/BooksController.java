@@ -19,7 +19,7 @@ public class BooksController {
     }
 
     @GetMapping("/gbooks/api/list")
-	public VolumeList gbooksList(@QueryParam("query") String query) {
+	public VolumeList gbooksList(@QueryParam("query") String query, @QueryParam("startIndex") Integer startIndex, @QueryParam("maxResults") Integer maxResults) {
         return bookStoreService.searchBooks(query, 0, 12);
 	}
 }
