@@ -1,39 +1,26 @@
 package com.bookstore.service;
 
-import java.util.logging.Logger;
-import java.util.logging.Level;
+import org.springframework.stereotype.Service;
 
-import com.bookstore.service.model.Shelf;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.bookstore.service.model.QueryInfo;
+import com.bookstore.service.model.VolumeList;
+import com.bookstore.service.model.VolumeListFactory;
 
 /**
- * Hello world!
- *
+ * 
  */
+@Service
 public class BookStoreServiceImpl implements BookStoreService {
-    private static Logger logger = Logger.getLogger(BookStoreServiceImpl.class.getName());
-    
     private BookStoreIntegration integration = new BookStoreIntegration();
 
     @Override
-    public Shelf searchBooks(String query, int startIndex, int maxResults) {
-        String content = integration.search(query, startIndex, maxResults);
-    
-        ObjectMapper mapper = new ObjectMapper();
-        
-        Shelf shelf;
-
-        try {
-            shelf = mapper.readValue(content, Shelf.class);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            
-            logger.log(Level.ALL, "Content was not unmarshalled", e);
-
-            shelf = new Shelf();
+    public VolumeList searchBooks(String query, int startIndex, int maxResults) {
+        if(query == null || query.isEmpty()) {
+            return new VolumeList();
         }
 
-        return shelf;
+        String content = integration.search(query, startIndex, maxResults);
+    
+        return VolumeListFactory.build(content, new QueryInfo(query, startIndex, maxResults));
     }
 }

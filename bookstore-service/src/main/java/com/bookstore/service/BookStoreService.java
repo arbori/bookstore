@@ -1,9 +1,9 @@
 package com.bookstore.service;
 
-import com.bookstore.service.model.Shelf;
+import com.bookstore.service.model.VolumeList;
 
 public interface BookStoreService {
 
-    public Shelf searchBooks(String query, int startIndex, int maxResults);
+    public VolumeList searchBooks(String query, int startIndex, int maxResults);
 
 }
