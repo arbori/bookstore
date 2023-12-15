@@ -36,7 +36,8 @@ public class VolumeListFactory {
                         getId(volumeJson),
                         getTitle(volumeJson),
                         getSmallThumbnail(volumeJson),
-                        getThumbnail(volumeJson)
+                        getThumbnail(volumeJson),
+                        false
                 ));
             }
         } catch(JSONException je) {

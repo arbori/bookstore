@@ -18,4 +18,6 @@ public class VolumeItem {
     private String smallThumbnail;
     @JsonbProperty("thumbnail")
     private String thumbnail;
+    @JsonbProperty("favorite")
+    private Boolean favorite;
 }
