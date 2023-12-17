@@ -14,4 +14,24 @@ public class VolumeItemDTO {
         this.thumbnail = thumbnail;
         this.favorite = favorite;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getSmallThumbnail() {
+        return smallThumbnail;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public Boolean getFavorite() {
+        return favorite;
+    }
 }
